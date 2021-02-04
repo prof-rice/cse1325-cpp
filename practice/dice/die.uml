@@ -1,0 +1,19 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class Die {
+-_faces   : int
+-_value   : int
++Die(faces : int)
++faces()  : int
++value()  : int
++roll() 
+}
+class Main {
++ main() : int
+}
+Main -right- Die
+
+@enduml
+
