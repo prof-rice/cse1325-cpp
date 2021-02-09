@@ -8,7 +8,7 @@ int main() {
     int vector = 1;
     int result = 0;
 
-    // Four fractions to handle the test cases
+    // Three fractions to handle the test cases
     Fraction f1{1, 2};
     Fraction f2{3, -4};
     Fraction f3{-1, 3};
