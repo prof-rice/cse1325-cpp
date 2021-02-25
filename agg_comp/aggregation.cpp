@@ -35,8 +35,12 @@ int main() {
     //            Can we recreate and print out v?
     std::cout << "\nRe-creating objects" << std::endl;
     
+        std::vector<Ndouble*> v;
+        for(int i=0; i<SIZE; ++i) v.push_back(my_ndoubles[i]);
 
- 
+         for(Ndouble* n : v) std::cout << *n << std::endl;
+    
+
   
     // While exiting the program deletes all objects automatically,
     //   I elect to explicitly delete them here for clarity.
