@@ -42,10 +42,12 @@ const std::vector<int> grades {
       };
 
 
+const int MAX_STUDENTS = 100;
+const int MAX_PARENTS = 400;
 
 int main() {
-    std::vector<Student> students;
-    std::vector<Parent> parents;
+    std::vector<Student> students; students.reserve(MAX_STUDENTS);
+    std::vector<Parent> parents; parents.reserve(MAX_PARENTS);
     std::string menu = R"(
            School Management and Reporting Tool
 
@@ -67,12 +69,14 @@ Selection? )";
         std::cout << menu;
         std::cin >> selection; cin_clear();
         if(selection == 1) {
+            if(students.size() > MAX_STUDENTS) throw std::runtime_error{"Enrollment full"};
             std::cout << "Student name? "; std::getline(std::cin, name);
             std::cout << "Student email? "; std::getline(std::cin, email);
             std::cout << "Grade? "; std::cin >> grade; cin_clear();
             students.push_back(Student{name, email, grade});
             
         } else if(selection == 2) { 
+            if(parents.size() > MAX_PARENTS) throw std::runtime_error{"PTA full"};
             std::cout << "Parent name? "; std::getline(std::cin, name);
             std::cout << "Parent email? "; std::getline(std::cin, email);
             parents.push_back(Parent{name, email});
@@ -83,16 +87,8 @@ Selection? )";
             print(parents);
             std::cout << "Parent? "; std::cin >> parent;
             try {
-                for(int i=0; i<students.size(); ++i) 
-                    std::cout << i << ") " << students.at(i).full_info() << std::endl;
-                for(int i=0; i<parents.size(); ++i) 
-                    std::cout << i << ") " << parents.at(i).full_info() << std::endl;
                 students.at(student).add_parent(parents.at(parent));
                 parents.at(parent).add_student(students.at(student));
-                for(int i=0; i<students.size(); ++i) 
-                    std::cout << i << ") " << students.at(i).full_info() << std::endl;
-                for(int i=0; i<parents.size(); ++i) 
-                    std::cout << i << ") " << parents.at(i).full_info() << std::endl;
             } catch(...) {
                 std::cerr << "Invalid selection!" << std::endl;
             }
