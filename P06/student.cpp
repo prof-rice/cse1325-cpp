@@ -15,7 +15,7 @@ std::string Student::full_info() const {
     std::string info = Person::full_info() + " in grade " + std::to_string(_grade) + " - Parents: ";
     std::string separator;
     for(Parent* p : _parents) {
-        info += separator + p->to_string();  // (*p).to_string()
+        info += separator + p->to_string();
         separator = ", ";
     }
     return info;
