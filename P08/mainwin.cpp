@@ -274,9 +274,17 @@ Mainwin::~Mainwin() {
 
 void Mainwin::on_new_school_click() {
     for(Student* s : students) delete s;
-    for(Parent* p : parents) delete p;
     students.clear();
+
+    for(Parent* p : parents) delete p;
     parents.clear();
+
+    for(Course* c : courses) delete c;
+    courses.clear();
+
+    for(Section* s : sections) delete s;
+    sections.clear();
+
     _filename = DEFAULT_FILENAME;
     show_data(View::STUDENTS);
 }
@@ -454,7 +462,7 @@ void Mainwin::on_new_student_click() {     // Create a new student
     } catch(std::exception& e) {
         error("Invalid input", e);
     }
-    show_data();
+    show_data(View::STUDENTS);
 }
 void Mainwin::on_new_parent_click() {      // Create a new parent
     try {
@@ -528,7 +536,7 @@ void Mainwin::on_new_section_click() {      // Create a new section
         
         d.show_all();
         if(d.run() != 1) return;       
-        Course course = *courses.at(cbt_courses.get_active_row_number());
+        Course& course = *courses.at(cbt_courses.get_active_row_number());
 
         // Select Semester and year
         EntryDialog m{*this, "Select Semester and Year", false, 
