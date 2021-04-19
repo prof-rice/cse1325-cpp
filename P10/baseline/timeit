@@ -1,0 +1,3 @@
+#!/bin/bash
+time ./wssolver "$@" puzzles/puzzle1?.txt > temp.txt ; diff temp.txt correct_output.txt
+
