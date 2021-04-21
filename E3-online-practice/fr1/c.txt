@@ -1,0 +1,3 @@
+FR1c. In one sentence, describe the purpose of a mutex.
+
+A mutex (“mutual exclusion”) object represents a resource that can be used by only one thread at a time.

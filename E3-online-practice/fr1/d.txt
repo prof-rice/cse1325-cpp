@@ -1,0 +1,3 @@
+FR1d. Concisely list 2 good applications for threads and concurrency.
+
+Video and graphics rendering; complex simulations such as turbulent flow, weather, and drug interaction models; and so on.

@@ -1,0 +1,4 @@
+FR1b. In one sentence, explain what the statement t.join(); does in the code in question FR1a?
+
+The main thread will stop executing until thread t completes. Then the main thread will resume.
+
