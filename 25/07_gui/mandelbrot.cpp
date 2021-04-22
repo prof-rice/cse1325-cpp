@@ -88,7 +88,10 @@ void Mandelbrot::calculate_point (int x, int y)  {
 
 // Dynamically resize, scale, and translate the set
 
-void Mandelbrot::icount(int value) {_icount = value;}
+void Mandelbrot::icount(int value) {
+    const std::lock_guard<std::mutex> lock(m); 
+    _icount = value;
+}
 int Mandelbrot::icount() {return _icount;}
     
 void Mandelbrot::size(std::pair<int, int> value) {
@@ -99,10 +102,14 @@ std::pair<int, int> Mandelbrot::size() {
     return std::make_pair(_width, _height);
 }
 
-void Mandelbrot::scale(double value) {_scale = value;}
+void Mandelbrot::scale(double value) {
+    const std::lock_guard<std::mutex> lock(m); 
+    _scale = value;
+}
 double Mandelbrot::scale() {return _scale;}
 
 void Mandelbrot::translate(std::pair<double, double> value) {
+    const std::lock_guard<std::mutex> lock(m); 
     _x_offset = value.first;
     _y_offset = value.second;
 }
@@ -110,6 +117,9 @@ std::pair<double, double> Mandelbrot::translate() {
     return std::make_pair(_x_offset, _y_offset);
 }
 
-void Mandelbrot::nthreads(int value) {_nthreads = value;}
+void Mandelbrot::nthreads(int value) {
+    const std::lock_guard<std::mutex> lock(m); 
+    _nthreads = value;
+}
 int Mandelbrot::nthreads() {return _nthreads;}
 

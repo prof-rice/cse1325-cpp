@@ -7,6 +7,14 @@ class Queue {
  public:
   virtual ~Queue() { }
 
+  // Push an entry onto the queue
+  void push(const T &item) {
+    std::lock_guard<std::mutex> lock(_mutex);
+    _queue.push(item);
+  }
+
+  // Returns true if an entry is available
+  //   and SIMULTANEOUSLY the entry
   std::optional<T> pop() {
     std::lock_guard<std::mutex> lock(_mutex);
     if (_queue.empty()) {
@@ -15,11 +23,6 @@ class Queue {
     T tmp = _queue.front();
     _queue.pop();
     return tmp;
-  }
-
-  void push(const T &item) {
-    std::lock_guard<std::mutex> lock(_mutex);
-    _queue.push(item);
   }
 
   // Returns the approximate number of elements in the queue

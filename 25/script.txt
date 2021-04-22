@@ -32,7 +32,8 @@ P3
 Explain class Mandelbrot
 Explain main.cpp
 Run with default values and display image.ppm
-Run with 1080 1080 500 - takes longer, duller image
+    time ./mandelbrot
+    time ./mandelbrot 1000 1000 500 - takes longer, duller image
 
 * 02_threads
 
@@ -86,6 +87,7 @@ Canvas
 Now we'd like to be able to *interact* with our Mandelbrot set!
 Mandelbrot
     Add getters and setters to interactively change the view
+    Use mutex locks to data updates to avoid write corruption
     Add _scale and _offsets
     Adjust calculate_point to handle translations
 Canvas
@@ -114,7 +116,6 @@ Here we finish out our GUI
     The sliders are coded for quadratic to give greater precesion at lesser values
 PROBLEM: In generate, changing data during generation could leave screen partly rendered
     Use _delta to determine if data changed during generate - if so, generate again
-Add mutex locks to data updates to avoid write corruption
 nthreads is supported but not part of the GUI at this time
 
 Added debug target to Makefile - subtle excape path in calculate_rows enabled an unexpected exception to leave a mutex locked

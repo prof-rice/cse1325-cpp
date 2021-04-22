@@ -6,7 +6,7 @@
 class Mandelbrot {
   public:
     Mandelbrot(int width = 1920, int height = 1080, int icount = 60, int nthreads = 1);
-    ~Mandelbrot();
+    ~Mandelbrot();                                     // per Rule of 3
     Mandelbrot(const Mandelbrot&) = delete;            // per Rule of 3
     Mandelbrot& operator=(const Mandelbrot&) = delete; // per Rule of 3
     friend std::ostream& operator<<(std::ostream& ost, const Mandelbrot& mandelbrot);

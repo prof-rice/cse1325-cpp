@@ -10,7 +10,7 @@
 class Canvas : public Gtk::DrawingArea {
   public:
     Canvas(int width, int height);
-    ~Canvas();
+    virtual ~Canvas();
     Canvas(const Canvas&) = delete;            // per Rule of 3
     Canvas& operator=(const Canvas&) = delete; // per Rule of 3
 
