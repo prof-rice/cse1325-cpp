@@ -1,0 +1,70 @@
+====================
+HOMEWORK P10 RESULTS
+====================
+
+Spring 2021
+
+
+FULL CREDIT
+===========
+
+QUESTION 1: Which puzzles did you use to achieve around a 30 second runtime: 
+
+
+QUESTION 2: Provide the output of ``timeit`` (or ``time ./wssolver 1 puzzles/puzzle*.txt`` for runs with 1 through 16 threads below. You can run all of these with a single bash command if you like: ``for i in {1..16} ; do time ./wssolver $i puzzles/puzzles*.txt ; done``
+
+Example Timing:
+
+ricegf@antares:~/dev/202101/P10/baseline$ ./timeit
+
+real  0m15.435s
+user  0m15.395s
+sys   0m0.028s
+
+
+
+YOUR Timing:
+
+
+
+
+QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program slightly?  Why or why not?
+
+
+
+
+QUESTION 4: Does adding more threads increase the "system load", or is it constant regardless of the number of threads?  Why?
+
+
+
+
+BONUS
+=====
+
+QUESTION 5: Provide the output of ``timeit`` (or ``time ./wssolver 1 puzzles/puzzle*.txt``) for runs with (at least) 1, 2, and 4 threads below. 
+
+
+YOUR Timing:
+
+
+
+
+QUESTION 6: Does the thread pool approach you used in the Bonus section run substantially faster than the hard allocations use in the Full Credit section?
+
+
+
+
+EXTREME BONUS
+=============
+
+QUESTION 7: BRIEFLY summarize your strategies for optimizing the solution of word search puzzles.
+
+
+
+
+
+
+QUESTION 8: In the performance competition, how would you like to be identified to the class? (Your real name is fine, or any professional alias is acceptable.)
+
+
+
