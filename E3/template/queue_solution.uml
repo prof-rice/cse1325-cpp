@@ -1,0 +1,12 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class Queue<T> {
+  - _elements : vector<T>
+  + push(element : T)
+  + pop() : T
+}
+ 
+@enduml
+

@@ -1,0 +1,28 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class Main {
+}
+
+class Product {
+  - _name : string
+  - _price : double
+  + Product(name : string, price : double)
+  + name() : string
+  + price() : double
+}
+
+class Cart {
+  - _customer : string
+  - _products : Product[0..n]
+  + Cart(customer : string)
+  + add_product(product : Product)
+  + customer() : string
+}
+
+Main - Cart
+Cart *- Product 
+ 
+@enduml
+
